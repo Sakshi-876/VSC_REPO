@@ -29,13 +29,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', 
+    
 ]
 
 
@@ -61,7 +62,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY') # If this returns None, it fails
 # TEMPORARY FIX: REPLACE THIS WITH YOUR ACTUAL SECRET_KEY from development
 # AND ADD IT TO RENDER'S ENVIRONMENT VARIABLES ASAP
 SECRET_KEY = 'django-insecure-your-secret-key-from-local-settings' 
-# ... and remove any os.environ lookup for it
+# ... and remove any os.environ lookup for ithttps://vsc-repo.onrender.com
 # SECRET_KEY = os.environ['SECRET_KEY'] # If SECRET_KEY is missing, this causes the error immediately
 WSGI_APPLICATION = 'hostel_management.wsgi.application'
 DATABASES = {
