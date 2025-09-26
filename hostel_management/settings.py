@@ -3,8 +3,14 @@ import os
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-secret-key'
-DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+DEBUG = False
+ALLOWED_HOSTS = [
+    # Add your Render domain here
+    'vsc-repo.onrender.com', 
+    # Add your custom domain if you have one
+    # You may also want to include the localhost for development:
+    '127.0.0.1', 
+]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
