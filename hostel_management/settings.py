@@ -35,7 +35,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
+
 
 ROOT_URLCONF = 'hostel_management.urls'
 LOGIN_URL = '/students/login/'
@@ -61,5 +63,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 # Directory where collectstatic will collect static files for production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 LOGIN_URL = '/students/login/'
 LOGIN_REDIRECT_URL = '/students/dashboard/'

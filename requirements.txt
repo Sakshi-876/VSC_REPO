@@ -1,7 +1,9 @@
 asgiref==3.9.1
 Django==5.2.6
 djangorestframework==3.16.1
+npm==0.1.1
+optional-django==0.1.0
 pillow==11.3.0
 sqlparse==0.5.3
 tzdata==2025.2
-gunicorn
+whitenoise==6.11.0
