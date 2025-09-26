@@ -1,0 +1,10 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<h1>Apply for Room</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Submit Application</button>
+    <a href="{% url 'students:student_dashboard' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+
+{% extends 'base_generic.html' %}
+{% block content %}
+<h1 class="room-list-title">Room List</h1>
+<table class="room-table">
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Capacity</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for room in object_list %}
+        <tr>
+            <td>{{ room.number }}</td>
+            <td>{{ room.capacity }}</td>
+            <td>
+                {% if room.is_available %}
+                    <span class="status available">Available</span>
+                {% else %}
+                    <span class="status occupied">Occupied</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

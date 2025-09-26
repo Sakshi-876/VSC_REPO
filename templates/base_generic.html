@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Management</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block background_image %}
+    <style>
+        body {
+            background: url('{% static "img/accommodation.webp" %}') no-repeat center center fixed;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+    {% endblock %}
+    <style>
+        .artistic-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90deg, #2d3e50 60%, #3a5068 100%);
+            padding: 1.2rem 2.5rem;
+            box-shadow: 0 4px 16px rgba(44,62,80,0.08);
+            margin-bottom: 2.5rem;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffd700;
+            letter-spacing: 0.03em;
+            text-shadow: 0 2px 8px #2d3e5040;
+        }
+        .logo-icon {
+            font-size: 2.1rem;
+            filter: drop-shadow(0 2px 4px #ffd70044);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.13rem;
+            padding: 0.4em 1.1em;
+            border-radius: 8px;
+            position: relative;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 4px rgba(44,62,80,0.04);
+            letter-spacing: 0.01em;
+            overflow: hidden;
+        }
+        .nav-links a:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 20%;
+            right: 20%;
+            bottom: 7px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700 60%, #fffbe6 100%);
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0.7);
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .nav-links a:hover, .nav-links a:focus {
+            background: #ffd700;
+            color: #2d3e50;
+            box-shadow: 0 2px 8px #ffd70044;
+        }
+        .nav-links a:hover:after, .nav-links a:focus:after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+            body {
+                color: #2d3e50;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                color: #223047;
+                font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+            }
+            p, li, label, input, textarea, select, .form-container, .feature-card {
+                color: #34495e;
+                font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+            }
+            a {
+                color: #1565c0;
+                transition: color 0.2s;
+            }
+            a:hover, a:focus {
+                color: #0d47a1;
+            }
+        /* No page-level background image here */
+    </style>
+</head>
+<body>
+    <nav class="artistic-nav">
+        <div class="nav-logo">
+            <span class="logo-icon">🏨</span>
+            <span class="logo-text">Hostel Management</span>
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="{% url 'about_us' %}">About Us</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'students:student_dashboard' %}">Student Dashboard</a>
+                {% if user.is_superuser %}
+                    <a href="/reception/visitorlogs/">Reception Staff</a>
+                {% endif %}
+                <a href="/manage/rooms/">Room Management</a>
+                <a href="/manage/beds/">Bed Management</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="/students/login/">Login</a>
+                <a href="/students/signup/">Sign Up</a>
+            {% endif %}
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,145 @@
+{% extends 'base_generic.html' %}
+{% block background_image %}
+<style>body{background:none !important;}</style>
+{% endblock %}
+{% load static %}
+{% block content %}
+<h1>About Us</h1>
+<p>Welcome to our Hostel! We are committed to providing a safe, comfortable, and vibrant living experience for all our residents. Explore our features below:</p>
+
+<style>
+  .feature-card {
+    background: #fffbe6;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px #2d3e5020, 0 1.5px 8px #ffd70033;
+    padding: 1.2em 1.5em 1.2em 1.5em;
+    margin-bottom: 2.5em;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border: 1.5px solid #ffd70044;
+  }
+  .feature-card:hover {
+    box-shadow: 0 12px 48px #2d3e5040, 0 2px 12px #ffd70066;
+    transform: translateY(-2px) scale(1.02);
+  }
+  .feature-title {
+    color: #2d3e50;
+    background: #ffd70022;
+    padding: 0.4em 1em;
+    border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 0.7em;
+    box-shadow: 0 1px 6px #ffd70022;
+  }
+</style>
+<div style="display:flex; flex-wrap:wrap; gap:2.5em; justify-content:space-between;">
+  <div style="flex:1 1 45%; min-width:340px;">
+    <section class="feature-card">
+      <h2 class="feature-title">🛏️ Comfortable Accommodation</h2>
+  <div style="display:flex; align-items:center; gap:1.5em; flex-wrap:nowrap;">
+  <img src="{% static 'img/accommodation.webp' %}" alt="Accommodation" style="width:120px; height:auto; border-radius:10px; box-shadow:0 2px 12px #2d3e5040; object-fit:cover; flex-shrink:0;">
+  <ul style="margin:0; padding-left:1.2em; font-size:1.08em; color:#2d3e50; flex:1;">
+          <li><b>Spacious, well-ventilated rooms</b> (single, double, or shared)</li>
+          <li><b>Furnished</b> with beds, study tables, chairs, and wardrobes</li>
+          <li><b>Regular housekeeping</b> and cleaning services</li>
+        </ul>
+      </div>
+    </section>
+    <section class="feature-card">
+      <h2 class="feature-title">🍽️ Nutritious Mess Facility</h2>
+  <div style="display:flex; align-items:center; gap:1.5em; flex-wrap:nowrap;">
+  <img src="{% static 'img/mess.jpg' %}" alt="Mess Facility" style="width:120px; height:auto; border-radius:10px; box-shadow:0 2px 12px #2d3e5040; object-fit:cover; flex-shrink:0;">
+  <ul style="margin:0; padding-left:1.2em; font-size:1.08em; color:#2d3e50; flex:1;">
+          <li><b>Hygienic, healthy, and balanced meals</b> served daily</li>
+          <li><b>Fixed meal schedule</b> (Breakfast, Lunch, Snacks, Dinner)</li>
+          <li><b>Vegetarian and non-vegetarian options</b> (if applicable)</li>
+          <li><b>Special menu</b> on festivals and weekends</li>
+        </ul>
+      </div>
+    </section>
+    <section class="feature-card">
+      <h2 class="feature-title">🌐 Connectivity & Utilities</h2>
+  <div style="display:flex; align-items:center; gap:1.5em; flex-wrap:nowrap;">
+  <img src="{% static 'img/utility.jpg' %}" alt="Connectivity & Utilities" style="width:120px; height:auto; border-radius:10px; box-shadow:0 2px 12px #2d3e5040; object-fit:cover; flex-shrink:0;">
+  <ul style="margin:0; padding-left:1.2em; font-size:1.08em; color:#2d3e50; flex:1;">
+          <li><b>High-speed Wi-Fi</b> in rooms and common areas</li>
+          <li><b>Uninterrupted power supply</b> with backup</li>
+          <li><b>Adequate water supply</b> (hot & cold)</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <div style="flex:1 1 45%; min-width:340px;">
+    <section class="feature-card">
+      <h2 class="feature-title">🧹 Hygiene & Cleanliness</h2>
+  <div style="display:flex; align-items:center; gap:1.5em; flex-wrap:nowrap;">
+  <img src="{% static 'img/cleaness.jpg' %}" alt="Hygiene & Cleanliness" style="width:120px; height:auto; border-radius:10px; box-shadow:0 2px 12px #2d3e5040; object-fit:cover; flex-shrink:0;">
+  <ul style="margin:0; padding-left:1.2em; font-size:1.08em; color:#2d3e50; flex:1;">
+          <li><b>Daily cleaning</b> of rooms, bathrooms, and common areas</li>
+          <li><b>Sanitized</b> and well-maintained washrooms</li>
+          <li><b>Waste disposal system</b> in place</li>
+        </ul>
+      </div>
+    </section>
+    <section class="feature-card">
+      <h2 class="feature-title">🔐 Safety & Security</h2>
+  <div style="display:flex; align-items:center; gap:1.5em; flex-wrap:nowrap;">
+  <img src="{% static 'img/security.jpg' %}" alt="Safety & Security" style="width:120px; height:auto; border-radius:10px; box-shadow:0 2px 12px #2d3e5040; object-fit:cover; flex-shrink:0;">
+  <ul style="margin:0; padding-left:1.2em; font-size:1.08em; color:#2d3e50; flex:1;">
+          <li><b>24/7 security guards</b> and CCTV surveillance</li>
+          <li><b>Biometric or RFID entry system</b></li>
+          <li><b>Visitor verification</b> and restricted entry</li>
+          <li><b>Emergency contact support</b> and medical assistance</li>
+        </ul>
+      </div>
+    </section>
+    <section class="feature-card">
+      <h2 class="feature-title">📚 Study-Friendly Environment</h2>
+  <div style="display:flex; align-items:center; gap:1.5em; flex-wrap:nowrap;">
+  <img src="{% static 'img/study.jpg' %}" alt="Study-Friendly Environment" style="width:120px; height:auto; border-radius:10px; box-shadow:0 2px 12px #2d3e5040; object-fit:cover; flex-shrink:0;">
+  <ul style="margin:0; padding-left:1.2em; font-size:1.08em; color:#2d3e50; flex:1;">
+          <li><b>Quiet hours</b> and study-focused rules</li>
+          <li><b>Dedicated study rooms</b> or reading corners</li>
+          <li><b>Minimal distractions</b> and noise control</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section>
+  <h2>🧰 Maintenance Support</h2>
+  <ul>
+    <li>Quick response to maintenance requests</li>
+    <li>On-call electrician, plumber, and cleaning staff</li>
+    <li>Complaint management system</li>
+  </ul>
+</section>
+
+<section>
+  <h2>🧘 Recreational & Wellness Facilities</h2>
+  <ul>
+    <li>Common lounge with TV and indoor games</li>
+    <li>Gym / Yoga space (if available)</li>
+    <li>Outdoor sports area / walking track</li>
+  </ul>
+</section>
+
+<section>
+  <h2>📅 Events & Community Life</h2>
+  <ul>
+    <li>Cultural and festival celebrations</li>
+    <li>Regular workshops, movie nights, and group activities</li>
+    <li>Encouragement of a friendly and inclusive atmosphere</li>
+  </ul>
+</section>
+
+<section>
+  <h2>🚌 Accessibility & Location Advantage</h2>
+  <ul>
+    <li>Convenient location near campus/college</li>
+    <li>Easy access to transport, markets, and emergency services</li>
+  </ul>
+</section>
+
+{% endblock %}

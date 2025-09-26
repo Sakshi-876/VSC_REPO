@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<h1>{% if object %}Edit Room{% else %}Add Room{% endif %}</h1>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'room_list_custom' %}">Back to Room List</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h1 style="margin:0">Delete Visitor Log</h1>
+        <a class="btn btn-outline" href="{% url 'reception_visitorlog_list' %}">Back</a>
+    </div>
+
+    <div class="card">
+        <p>Are you sure you want to delete this visitor log?</p>
+        <ul>
+            <li>{{ object.visitor_name }} visiting {{ object.student.user.username }} | Check-in: {{ object.check_in }} | Check-out: {{ object.check_out }} | Purpose: {{ object.purpose }}</li>
+        </ul>
+        <form method="post">{% csrf_token %}
+            <button type="submit" class="btn btn-primary">Confirm Delete</button>
+            <a class="btn btn-outline" href="{% url 'reception_visitorlog_list' %}">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

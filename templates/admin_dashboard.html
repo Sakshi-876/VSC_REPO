@@ -1,0 +1,19 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<h1>Admin Dashboard</h1>
+{% if alerts %}
+    <div class="alerts">
+        <ul>
+        {% for alert in alerts %}
+            <li>{{ alert }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+<p>Welcome, {{ user.username }}!</p>
+<a href="/admin/complaints/">View Complaints</a> |
+<a href="/admin/payments/">View Payments</a> |
+<a href="/admin/students/">View Students</a> |
+<a href="/admin/rooms/">View Rooms</a> |
+<a href="/admin/visitorlogs/">View Visitor Logs</a>
+{% endblock %}

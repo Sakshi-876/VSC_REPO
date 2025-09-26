@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <div class="logout-message" style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;text-align:center;">
+        <div class="alert" style="font-size:1.3rem;color:#2d3e50;font-weight:600;margin-bottom:2.2rem;">
+            You have been securely logged out.<br>
+            Thank you for using the Hostel Management System.
+        </div>
+        <a href="/students/login/" target="_blank" style="background:#ffd700;color:#2d3e50;padding:0.9em 2.2em;border-radius:10px;font-size:1.2rem;font-weight:700;text-decoration:none;box-shadow:0 2px 8px #ffd70044;transition:background 0.2s;">Sign In / Log In</a>
+    </div>
+{% endblock %}

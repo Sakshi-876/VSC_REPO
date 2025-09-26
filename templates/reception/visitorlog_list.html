@@ -1,0 +1,46 @@
+{% extends 'base_generic.html' %}
+{% block background_image %}
+<style>body{background:none !important;}</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h1 style="margin:0">Visitor Logs</h1>
+        <a class="btn btn-primary" href="{% url 'reception_visitorlog_new' %}">+ New Visitor Log</a>
+    </div>
+
+    <div class="card">
+        {% if object_list %}
+        <table class="table-modern">
+            <thead>
+                <tr>
+                    <th>Visitor</th>
+                    <th>Visiting</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Purpose</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for log in object_list %}
+                <tr>
+                    <td>{{ log.visitor_name }}</td>
+                    <td>{{ log.student.user.get_full_name|default:log.student.user.username }}</td>
+                    <td>{{ log.check_in }}</td>
+                    <td>{{ log.check_out|default:'—' }}</td>
+                    <td class="muted">{{ log.purpose|truncatechars:50 }}</td>
+                    <td class="action-links">
+                        <a class="btn btn-sm btn-outline" href="{% url 'reception_visitorlog_edit' log.pk %}">Edit</a>
+                        <a class="btn btn-sm btn-outline" href="{% url 'reception_visitorlog_delete' log.pk %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p class="muted">No visitor logs found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

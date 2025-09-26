@@ -1,0 +1,23 @@
+{% extends 'base_generic.html' %}
+{% block background_image %}
+<style>body{background:none !important;}</style>
+{% endblock %}
+{% block content %}
+<h1>Room Management</h1>
+<table class="room-table">
+    <thead>
+    <tr><th>Number</th><th>Capacity</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+    {% for room in object_list %}
+        <tr>
+            <td>{{ room.number }}</td>
+            <td>{{ room.capacity }}</td>
+            <td>{% if room.is_available %}Available{% else %}Occupied{% endif %}</td>
+        </tr>
+    {% empty %}
+    <tr><td colspan="3">No rooms found.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
