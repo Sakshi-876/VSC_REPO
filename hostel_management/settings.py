@@ -52,6 +52,17 @@ TEMPLATES = [{
         'django.contrib.messages.context_processors.messages',
     ]},
 }]
+import os
+# ...
+SECRET_KEY = os.environ.get('SECRET_KEY') # If this returns None, it fails
+# OR
+# hostel_management/settings.py
+
+# TEMPORARY FIX: REPLACE THIS WITH YOUR ACTUAL SECRET_KEY from development
+# AND ADD IT TO RENDER'S ENVIRONMENT VARIABLES ASAP
+SECRET_KEY = 'django-insecure-your-secret-key-from-local-settings' 
+# ... and remove any os.environ lookup for it
+# SECRET_KEY = os.environ['SECRET_KEY'] # If SECRET_KEY is missing, this causes the error immediately
 WSGI_APPLICATION = 'hostel_management.wsgi.application'
 DATABASES = {
     'default': {
